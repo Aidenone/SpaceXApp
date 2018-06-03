@@ -2,10 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {LaunchListPage} from '../pages/launch-list/launch-list';
 
+import {LaunchListPage} from '../pages/launch-list/launch-list';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { CompanyPage } from '../pages/company/company';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +25,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Launches', component: LaunchListPage}
+      { title: 'Launches', component: LaunchListPage},
+      { title: 'Company', component: CompanyPage},
     ];
 
   }

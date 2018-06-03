@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { CompanyPage } from '../pages/company/company';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    LaunchListPage
+    LaunchListPage,
+    CompanyPage,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    LaunchListPage
+    LaunchListPage,
+    CompanyPage,
   ],
   providers: [
     StatusBar,
