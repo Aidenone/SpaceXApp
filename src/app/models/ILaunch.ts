@@ -3,9 +3,9 @@ export interface ICore {
     flight?: number;
     block?: number;
     reused?: boolean;
-    land_success?: boolean;
-    landing_type: string;
-    landing_vehicle: string;
+    land_success?: any;
+    landing_type?: any;
+    landing_vehicle?: any;
 }
 
 export interface IFirstStage {
@@ -20,11 +20,11 @@ export interface IPayload {
     payload_mass_kg?: number;
     payload_mass_lbs?: number;
     orbit: string;
-    cap_serial: string;
-    mass_returned_kg?: number;
-    mass_returned_lbs?: number;
-    flight_time_sec?: number;
-    cargo_manifest: string;
+    cap_serial?: any;
+    mass_returned_kg?: any;
+    mass_returned_lbs?: any;
+    flight_time_sec?: any;
+    cargo_manifest?: any;
 }
 
 export interface ISecondStage {
@@ -40,7 +40,7 @@ export interface IRocket {
 }
 
 export interface ITelemetry {
-    flight_club: string;
+    flight_club?: any;
 }
 
 export interface IReuse {
@@ -58,16 +58,16 @@ export interface ILaunchSite {
 }
 
 export interface ILinks {
-    mission_patch: string;
-    mission_patch_small: string;
-    article_link: string;
-    wikipedia: string;
-    video_link: string;
-    presskit: string;
+    mission_patch?: any;
+    mission_patch_small?: any;
     reddit_campaign: string;
-    reddit_launch: string;
-    reddit_recovery: string;
-    reddit_media: string;
+    reddit_launch?: any;
+    reddit_recovery?: any;
+    reddit_media?: any;
+    presskit?: any;
+    article_link?: any;
+    wikipedia?: any;
+    video_link?: any;
 }
 
 export interface ILaunch {
@@ -81,7 +81,7 @@ export interface ILaunch {
     telemetry: ITelemetry;
     reuse: IReuse;
     launch_site: ILaunchSite;
-    launch_success?: boolean;
+    launch_success?: any;
     links: ILinks;
-    details: string;
+    details?: any;
 }
