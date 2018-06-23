@@ -12,6 +12,8 @@ import { RocketPage } from '../pages/rocket/rocket';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
+import { CapsulesListPage } from '../pages/capsules-list/capsules-list';
+import { CapsulePage } from '../pages/capsule/capsule';
 import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 
 @NgModule({
@@ -20,6 +22,8 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
     HomePage,
     ListPage,
     LaunchListPage,
+    CapsulesListPage,
+    CapsulePage,
     RocketListPage,
     RocketPage
   ],
@@ -34,6 +38,8 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
     HomePage,
     ListPage,
     LaunchListPage,
+    CapsulesListPage,
+    CapsulePage,
     RocketListPage,
     RocketPage
   ],
