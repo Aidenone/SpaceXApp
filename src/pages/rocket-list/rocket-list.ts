@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
-import { ILaunch } from '../../app/Models/ILaunch';
+import { IRocket } from '../../app/Models/IRocket';
+import { RocketPage } from '../../pages/rocket/rocket';
+
 
 /**
- * Generated class for the LaunchListPage page.
+ * Generated class for the RocketListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,27 +14,33 @@ import { ILaunch } from '../../app/Models/ILaunch';
 
 @IonicPage()
 @Component({
-  selector: 'page-launch-list',
-  templateUrl: 'launch-list.html',
+  selector: 'page-rocket-list',
+  templateUrl: 'rocket-list.html',
 })
-export class LaunchListPage {
+export class RocketListPage {
 
-  launches: ILaunch[];
-
+  rockets: IRocket[];
   constructor(public navCtrl: NavController, public navParams: NavParams,private spacexApi: SpacexApiProvider) {
   
-    this.spacexApi.getAllLaunches(
+    this.spacexApi.getAllRockets(
       {
         order: 'desc',
-        launch_year: 2015
+        
       }
     ).subscribe(data => {
-      this.launches = data;
+      this.rockets = data;
+    })
+  }
+
+
+  navigate(idRocket) {
+    this.navCtrl.push(RocketPage, {
+      idRocket: idRocket
     })
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchListPage');
+    console.log('ionViewDidLoad RocketListPage');
   }
 
 }

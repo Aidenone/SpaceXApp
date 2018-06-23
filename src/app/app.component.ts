@@ -2,12 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {LaunchListPage} from '../pages/launch-list/launch-list';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { CapsulesListPage } from '../pages/capsules-list/capsules-list';
 import { CapsulePage } from '../pages/capsule/capsule';
+import { LaunchListPage } from '../pages/launch-list/launch-list';
+import { RocketListPage } from '../pages/rocket-list/rocket-list';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -27,7 +29,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Launches', component: LaunchListPage},
-      { title: 'Capsules', component: CapsulesListPage}
+      { title: 'Capsules', component: CapsulesListPage},
+      { title: 'Rockets', component: RocketListPage}
     ];
 
   }
