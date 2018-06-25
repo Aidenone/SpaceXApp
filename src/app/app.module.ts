@@ -20,8 +20,6 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
     LaunchListPage,
     CompanyPage,
     CapsulesListPage,
@@ -37,8 +35,6 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
     LaunchListPage,
     CompanyPage,
     CapsulesListPage,
