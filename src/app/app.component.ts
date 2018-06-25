@@ -2,9 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { CapsulesListPage } from '../pages/capsules-list/capsules-list';
 import { CapsulePage } from '../pages/capsule/capsule';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
@@ -17,7 +14,8 @@ import { RocketListPage } from '../pages/rocket-list/rocket-list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LaunchListPage;
+  activePage:any;
 
   pages: Array<{title: string, component: any}>;
 
@@ -26,12 +24,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
       { title: 'Launches', component: LaunchListPage},
       { title: 'Capsules', component: CapsulesListPage},
       { title: 'Rockets', component: RocketListPage}
     ];
+
+    this.activePage = this.pages[0];
 
   }
 
@@ -48,5 +46,10 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+    this.activePage = page;
+  }
+
+  checkActive(page){
+    return page = this.activePage;
   }
 }
