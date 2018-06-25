@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ILaunch } from '../../app/models/ILaunch';
+import { ICompany } from '../../app/models/ICompany';
 import { ICapsule } from '../../app/models/ICapsules';
 import { IRocket } from '../../app/models/IRocket';
 
@@ -24,6 +25,7 @@ export class SpacexApiProvider {
    const httpParams = Object.getOwnPropertyNames(params)
                             .reduce((p,key) => p.set(key, params[key]), new HttpParams());
    return this.http.get<ILaunch[]>(endpointUrl, {params: httpParams});
+  
  }
 
 
@@ -42,12 +44,19 @@ getUpComingLaunches(params: any): Observable<ILaunch[]> {
 }
  
 
- getAllCapsules(params: any): Observable<ICapsule[]> {
-  const endpointUrl = `${this.baseUrl}/capsules`;
-  const httpParams = Object.getOwnPropertyNames(params)
-                           .reduce((p,key) => p.set(key, params[key]), new HttpParams());
-  return this.http.get<ICapsule[]>(endpointUrl, {params: httpParams});
- }
+  getCompany(params: any): Observable<ICompany[]> {
+    const endpointUrl = `${this.baseUrl}/info`;
+    const httpParams = Object.getOwnPropertyNames(params)
+                            .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+    return this.http.get<ICompany[]>(endpointUrl, {params: httpParams});
+  }
+
+  getAllCapsules(params: any): Observable<ICapsule[]> {
+    const endpointUrl = `${this.baseUrl}/capsules`;
+    const httpParams = Object.getOwnPropertyNames(params)
+                            .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+    return this.http.get<ICapsule[]>(endpointUrl, {params: httpParams});
+  }
 
   getAllRockets(params: any): Observable<IRocket[]>{
     const endpointUrl = `${this.baseUrl}/rockets`;
@@ -62,10 +71,10 @@ getUpComingLaunches(params: any): Observable<ILaunch[]> {
     return this.http.get<IRocket>(endpointUrl, {params: httpParams});
    }
 
- getCapsuleByName(params: any, idCapsule: String): Observable<ICapsule> {
-  const endpointUrl = `${this.baseUrl}/capsules/${idCapsule}`;
-  const httpParams = Object.getOwnPropertyNames(params)
-                           .reduce((p,key) => p.set(key, params[key]), new HttpParams());
-  return this.http.get<ICapsule>(endpointUrl, {params: httpParams});
- }
+  getCapsuleByName(params: any, idCapsule: String): Observable<ICapsule> {
+    const endpointUrl = `${this.baseUrl}/capsules/${idCapsule}`;
+    const httpParams = Object.getOwnPropertyNames(params)
+                            .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+    return this.http.get<ICapsule>(endpointUrl, {params: httpParams});
+  }
 }

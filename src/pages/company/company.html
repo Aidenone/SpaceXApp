@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{company?.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <p>Founder : {{company?.founder}}</p>
+  <p>COO : {{company?.coo}}</p>
+  <p>Founded in : {{company?.founded}}</p>
+  <p>Valuation : {{company?.valuation}} USD</p>
+  <p>Employees : {{company?.employees}}</p>
+  <p>Summary : {{company?.summary}}</p>
+  <p>Headquarter address : {{company?.headquarters.address}} {{company?.headquarters.city}} {{company?.headquarters.state}}</p>
+  <p>Vehicles number : <a (click)="linkNav('LaunchListPage')">{{company?.vehicles}}</a></p>
+</ion-content>

@@ -3,6 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+import { CompanyPage } from '../pages/company/company';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
 import { RocketListPage } from '../pages/rocket-list/rocket-list';
 import { RocketPage } from '../pages/rocket/rocket';
@@ -18,6 +21,7 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
   declarations: [
     MyApp,
     LaunchListPage,
+    CompanyPage,
     CapsulesListPage,
     CapsulePage,
     RocketListPage,
@@ -32,6 +36,7 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
   entryComponents: [
     MyApp,
     LaunchListPage,
+    CompanyPage,
     CapsulesListPage,
     CapsulePage,
     RocketListPage,
