@@ -1,6 +1,4 @@
-import { IFirstStage, ISecondStage } from "./ILaunch"
-
-    export interface IHeight {
+   export interface IHeight {
         meters: number;
         feet: number;
     }
@@ -104,7 +102,7 @@ import { IFirstStage, ISecondStage } from "./ILaunch"
         material: string;
     }
 
-    export interface IRootObject {
+    export interface IRocket {
         id: string;
         name: string;
         type: string;
@@ -126,4 +124,6 @@ import { IFirstStage, ISecondStage } from "./ILaunch"
         landing_legs: ILandingLegs;
         description: string;
     }
+
+
 
