@@ -33,7 +33,7 @@ export class CompanyPage {
     console.log('ionViewDidLoad CompanyPage');
   }
 
-  linkNav(event, page) {
+  linkNav(page) {
     switch (page) {
       case 'LaunchListPage':
         this.navCtrl.push(LaunchListPage);
