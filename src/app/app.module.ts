@@ -6,36 +6,48 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
+import { RocketListPage } from '../pages/rocket-list/rocket-list';
+import { RocketPage } from '../pages/rocket/rocket';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
+import { CapsulesListPage } from '../pages/capsules-list/capsules-list';
+import { CapsulePage } from '../pages/capsule/capsule';
+import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    LaunchListPage
+    LaunchListPage,
+    CapsulesListPage,
+    CapsulePage,
+    RocketListPage,
+    RocketPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ListPage,
-    LaunchListPage
+    LaunchListPage,
+    CapsulesListPage,
+    CapsulePage,
+    RocketListPage,
+    RocketPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SpacexApiProvider
+    SpacexApiProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

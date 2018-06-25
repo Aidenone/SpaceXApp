@@ -1,0 +1,59 @@
+<!--
+  Generated template for the CapsulePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="capsule">{{capsule.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="capsule">
+
+      <ion-item-group>
+        <ion-item-divider color="light">Capsule</ion-item-divider>
+        <ion-item>
+          <strong>Name : </strong> {{capsule.name}}
+          <ion-badge color="secondary" *ngIf="capsule.active">Active</ion-badge>
+          <ion-badge color="primary" *ngIf="!capsule.active">Inactive</ion-badge>
+        </ion-item>
+        <ion-item><strong>Type : </strong> {{capsule.type}}</ion-item>
+        <ion-item><strong>Orbit Duration Year : </strong> {{capsule.orbit_duration_yr}} years</ion-item>
+        <ion-item><strong>Diameter : </strong> {{capsule.diameter.meters}} meters ({{capsule.diameter.feet}} feets)</ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="light">Heat Shield</ion-item-divider>
+        <ion-item><strong>Material : </strong> {{capsule.heat_shield.material}}</ion-item>
+        <ion-item><strong>Size : </strong> {{capsule.heat_shield.size_meters} meters}</ion-item>
+        <ion-item><strong>Temperature : </strong> {{capsule.heat_shield.temp_degrees}} degrees</ion-item>
+        <ion-item><strong>Developer Partner : </strong> {{capsule.heat_shield.dev_partner}} degrees</ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="light">Launch Payload</ion-item-divider>
+        <ion-item><strong>Mass : </strong> {{capsule.launch_payload_mass.kg}} kg ({{capsule.launch_payload_mass.lb}} lb)</ion-item>
+        <ion-item><strong>Volume : </strong> {{capsule.launch_payload_vol.cubic_meters}} m3 ({{capsule.launch_payload_vol.cubic_feet}} cu ft)</ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="light">Return Payload</ion-item-divider>
+        <ion-item><strong>Mass : </strong> {{capsule.return_payload_mass.kg}} kg ({{capsule.return_payload_mass.lb}} lb)</ion-item>
+        <ion-item><strong>Volume : </strong> {{capsule.return_payload_vol.cubic_meters}} m3 ({{capsule.return_payload_vol.cubic_feet}} cu ft)</ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="light">Trunk</ion-item-divider>
+        <ion-item><strong>Volume : </strong> {{capsule.trunk.trunk_volume.cubic_meters}} m3 ({{capsule.trunk.trunk_volume.cubic_feet}} cu ft)</ion-item>
+        <ion-item><strong>Cargo : </strong> Solar Array ({{capsule.trunk.cargo.solar_array}})</ion-item>
+        <ion-item *ngIf="capsule.trunk.cargo.unpressurized_cargo"><ion-badge color="primary">Unpressurized cargo</ion-badge></ion-item>
+      </ion-item-group>
+
+  </div>
+</ion-content>
