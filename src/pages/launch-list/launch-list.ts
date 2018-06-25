@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { ILaunch } from '../../app/Models/ILaunch';
 
@@ -17,17 +17,48 @@ import { ILaunch } from '../../app/Models/ILaunch';
 })
 export class LaunchListPage {
 
-  launches: ILaunch[];
+  @ViewChild('slider') slider:Slides;
+  page="0"
+
+  selectedTab(ind){
+    this.slider.slideTo(ind);
+  }
+
+  moveButton(event){
+    this.page = event._snapIndex.toString();
+
+  }
+
+  sliderOptions = { pager: true, autoHeight: true } 
+
+  allLaunches: ILaunch[];
+  pastLaunches: ILaunch[];
+  upComingLaunches: ILaunch[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private spacexApi: SpacexApiProvider) {
   
     this.spacexApi.getAllLaunches(
       {
         order: 'desc',
-        launch_year: 2015
       }
     ).subscribe(data => {
-      this.launches = data;
+      this.allLaunches = data;
+    })
+
+    this.spacexApi.getPastLaunches(
+      {
+        order: 'desc',
+      }
+    ).subscribe(data => {
+      this.pastLaunches = data;
+    })
+
+    this.spacexApi.getUpComingLaunches(
+      {
+        order: 'desc',
+      }
+    ).subscribe(data => {
+      this.upComingLaunches = data;
     })
   }
 
