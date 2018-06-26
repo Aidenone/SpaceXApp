@@ -5,14 +5,39 @@
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
+
+  <ion-segment [(ngModel)]="page">
+    <ion-segment-button value="0" (click)="selectedTab(0)">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="1" (click)="selectedTab(1)">
+      Past
+    </ion-segment-button>
+    <ion-segment-button value="2" (click)="selectedTab(2)">
+      Coming up
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3 text-center>Welcome to SpaceXApp</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+
+    <ion-slide style="background-color: green">
+      <h2>All</h2>
+    </ion-slide>
+  
+    <ion-slide style="background-color: blue">
+      <h2>Past</h2>
+    </ion-slide>
+  
+    <ion-slide style="background-color: red">
+      <h2>Coming up</h2>
+    </ion-slide>
+  
+  </ion-slides>
+
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
