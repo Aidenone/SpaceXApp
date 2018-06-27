@@ -42,108 +42,52 @@
 
     <ion-slide>
 
-  <h3 text-center>All Launches</h3>
-      <ion-card *ngFor="let launch of allLaunches">
-        <img src="{{launch.links.mission_patch_small}}"/>
-        <ion-card-content>
-          <ion-card-title>
-            {{launch.mission_name}}
-            </ion-card-title>
-          <p>
-            {{launch.details}}
-          </p>
-          <ion-row no-padding>
-            <ion-col>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='star'></ion-icon>
-                Favorite
-              </button>
-            </ion-col>
-            <ion-col text-center>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='musical-notes'></ion-icon>
-                Listen
-              </button>
-            </ion-col>
-            <ion-col text-right>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='share-alt'></ion-icon>
-                Share
-              </button>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+      <h3 text-center>All Launches</h3>
+
+        <ion-list *ngFor="let launch of allLaunches">
+          <ion-item (click)="navigate(launch.flight_number)">
+              <ion-thumbnail item-start>
+                <img src="{{launch.links.mission_patch_small}}"/>
+              </ion-thumbnail>
+              <h2>{{launch.mission_name}}</h2>
+              <p>{{launch.launch_year}}</p>
+          </ion-item>
+        </ion-list>
+     
     </ion-slide>
   
     <ion-slide>
-        <h3 text-center>Past Launches</h3>
-      <ion-card *ngFor="let launch of pastLaunches">
-        <img src="{{launch.links.mission_patch_small}}"/>
-        <ion-card-content>
-          <ion-card-title>
-            {{launch.mission_name}}
-            </ion-card-title>
-          <p>
-            {{launch.details}}
-          </p>
-          <ion-row no-padding>
-            <ion-col>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='star'></ion-icon>
-                Favorite
-              </button>
-            </ion-col>
-            <ion-col text-center>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='musical-notes'></ion-icon>
-                Listen
-              </button>
-            </ion-col>
-            <ion-col text-right>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='share-alt'></ion-icon>
-                Share
-              </button>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+
+      <h3 text-center>Past Launches</h3>
+
+        <ion-list *ngFor="let launch of pastLaunches">
+          <ion-item (click)="navigate(launch.flight_number)">
+            <ion-thumbnail item-start>
+              <img src="{{launch.links.mission_patch_small}}"/>
+            </ion-thumbnail>
+            <h2>{{launch.mission_name}}</h2>
+            <p>{{launch.launch_year}}</p>
+            <button ion-button clear item-end>View</button>
+          </ion-item>
+        </ion-list>
+     
     </ion-slide>
   
     <ion-slide>
+
         <h3 text-center>UpComing Launches</h3>
-      <ion-card *ngFor="let launch of upComingLaunches">
-        <img src="{{launch.links.mission_patch_small}}"/>
-        <ion-card-content>
-          <ion-card-title>
-            {{launch.mission_name}}
-            </ion-card-title>
-          <p>
-            {{launch.details}}
-          </p>
-          <ion-row no-padding>
-            <ion-col>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='star'></ion-icon>
-                Favorite
-              </button>
-            </ion-col>
-            <ion-col text-center>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='musical-notes'></ion-icon>
-                Listen
-              </button>
-            </ion-col>
-            <ion-col text-right>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='share-alt'></ion-icon>
-                Share
-              </button>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+
+        <ion-list *ngFor="let launch of upComingLaunches">
+          <ion-item (click)="navigate(launch.flight_number)">
+            <ion-thumbnail item-start>
+              <img src="{{launch.links.mission_patch_small}}"/>
+            </ion-thumbnail>
+            <h2>{{launch.mission_name}}</h2>
+            <p>{{launch.launch_year}}</p>
+            <button ion-button clear item-end>View</button>
+          </ion-item>
+        </ion-list>
+
     </ion-slide>
   
   </ion-slides>
