@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
-import { LaunchListPage } from '../launch-list/launch-list';
+import { RocketListPage } from '../rocket-list/rocket-list';
 
 /**
  * Generated class for the CompanyPage page.
@@ -35,8 +35,8 @@ export class CompanyPage {
 
   linkNav(page) {
     switch (page) {
-      case 'LaunchListPage':
-        this.navCtrl.push(LaunchListPage);
+      case 'RocketPage':
+        this.navCtrl.push(RocketListPage);
       break;
     
       default:
