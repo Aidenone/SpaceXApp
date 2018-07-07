@@ -12,6 +12,9 @@
       <ion-title>Welcome to SpaceXApp</ion-title>
     </ion-navbar>
 
+
+    
+
     <ion-segment [(ngModel)]="page">
       <ion-segment-button value="0" (click)="selectedTab(0)">
         All
@@ -23,26 +26,46 @@
         Up Coming
       </ion-segment-button>
     </ion-segment>
+    <ion-card>
+     
+      <ion-card-content *ngIf="nextLaunch">
+        <ion-card-title><!-- Next launch : -->
+          {{nextLaunch.mission_name}}
+          </ion-card-title>
+      
+          <ion-icon name="clock">
+          <h3>{{days}} Day(s) :  
+           {{hours}} Hour(s) : 
+          {{minutes}} Minute(s) : 
+          {{seconds}} Second(s) </h3>
+          </ion-icon>
+        
+      </ion-card-content>
   </ion-header>
+  
 
 
 <ion-content padding>
- <!--  <ion-list>
-    <ion-item *ngFor="let launch of launches">
-      <ion-avatar item-start>
-        <img src="{{launch.links.mission_patch_small}}">
-      </ion-avatar>
-      <h2>{{launch.mission_name}}</h2>
-      <p>{{launch.details}}</p>
-    </ion-item>
-  </ion-list> -->
-
+ 
 
   <ion-slides #slider (ionSlideWillChange)="moveButton($event)" class="slide">
 
     <ion-slide>
 
   <h3 text-center>All Launches</h3>
+  <ion-searchbar
+  [(ngModel)]="myInput"
+  [showCancelButton]="shouldShowCancel"
+  (ionInput)="onInput($event)"
+  (ionCancel)="onCancel($event)">
+  <ion-item>
+    <ion-label>Filter</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="f">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-searchbar>
       <ion-card *ngFor="let launch of allLaunches">
         <img src="{{launch.links.mission_patch_small}}"/>
         <ion-card-content>
@@ -53,24 +76,7 @@
             {{launch.details}}
           </p>
           <ion-row no-padding>
-            <ion-col>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='star'></ion-icon>
-                Favorite
-              </button>
-            </ion-col>
-            <ion-col text-center>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='musical-notes'></ion-icon>
-                Listen
-              </button>
-            </ion-col>
-            <ion-col text-right>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='share-alt'></ion-icon>
-                Share
-              </button>
-            </ion-col>
+            
           </ion-row>
         </ion-card-content>
       </ion-card>
@@ -88,24 +94,7 @@
             {{launch.details}}
           </p>
           <ion-row no-padding>
-            <ion-col>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='star'></ion-icon>
-                Favorite
-              </button>
-            </ion-col>
-            <ion-col text-center>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='musical-notes'></ion-icon>
-                Listen
-              </button>
-            </ion-col>
-            <ion-col text-right>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='share-alt'></ion-icon>
-                Share
-              </button>
-            </ion-col>
+           
           </ion-row>
         </ion-card-content>
       </ion-card>
@@ -123,24 +112,7 @@
             {{launch.details}}
           </p>
           <ion-row no-padding>
-            <ion-col>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='star'></ion-icon>
-                Favorite
-              </button>
-            </ion-col>
-            <ion-col text-center>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='musical-notes'></ion-icon>
-                Listen
-              </button>
-            </ion-col>
-            <ion-col text-right>
-              <button ion-button clear small color="danger" icon-start>
-                <ion-icon name='share-alt'></ion-icon>
-                Share
-              </button>
-            </ion-col>
+           
           </ion-row>
         </ion-card-content>
       </ion-card>
