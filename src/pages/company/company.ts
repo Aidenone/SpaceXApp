@@ -3,6 +3,7 @@ import { RocketListPage } from '../rocket-list/rocket-list';
 import { ICompany } from '../../app/Models/ICompany';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { CompanyHistoryPage } from '../company-history/company-history';
 
 /**
  * Generated class for the CompanyPage page.
@@ -55,10 +56,17 @@ export class CompanyPage {
     console.log('ionViewDidLoad CompanyPage');
   }
 
-  linkNav(page) {
+  linkNav(page, id=null) {
+    console.log("test"+page);
     switch (page) {
       case 'RocketPage':
         this.navCtrl.push(RocketListPage);
+      break;
+
+      case 'CompanyHistory':
+        this.navCtrl.push(CompanyHistoryPage, {
+          historyId: id
+        });
       break;
     
       default:

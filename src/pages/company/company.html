@@ -32,7 +32,7 @@
         <p>Employees : {{company?.employees}}</p>
         <p>Summary : {{company?.summary}}</p>
         <p>Headquarter address : {{company?.headquarters.address}} {{company?.headquarters.city}} {{company?.headquarters.state}}</p>
-        <p>Vehicles number : <a (click)="linkNav('LaunchListPage')">{{company?.vehicles}}</a></p>
+        <p>Vehicles number : <a (click)="linkNav('RocketPage')">{{company?.vehicles}}</a></p>
     </ion-slide>
 
     <ion-slide>
@@ -42,11 +42,11 @@
                 {{history.title}}
               </ion-card-title>
               <p>
-                 Flight number : {{history.flight_number}}
+                 {{history.event_date_utc}}
               </p>
-              <ion-row no-padding>
-                  {{companyHistories?.title}}
-              </ion-row>
+              <p>
+                  {{history.details}}
+               </p>
             </ion-card-content>
           </ion-card>
     </ion-slide>
