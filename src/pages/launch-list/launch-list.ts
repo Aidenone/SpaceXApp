@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { ILaunch } from '../../app/Models/ILaunch';
 
+
 /**
  * Generated class for the LaunchListPage page.
  *

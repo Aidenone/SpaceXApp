@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { RocketListPage } from '../rocket-list/rocket-list';
+import { ICompany } from '../../app/Models/ICompany';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 
 /**
  * Generated class for the CompanyPage page.
@@ -16,17 +17,38 @@ import { RocketListPage } from '../rocket-list/rocket-list';
   templateUrl: 'company.html',
 })
 export class CompanyPage {
+
   company: any;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    private spacexApi: SpacexApiProvider) {
+  @ViewChild('slider') slider:Slides;
+  page="0"
+
+  selectedTab(ind){
+    this.slider.slideTo(ind);
+  }
+
+  moveButton(event){
+    this.page = event._snapIndex.toString();
+
+  }
+
+  sliderOptions = { pager: true, autoHeight: true } 
+
+  companyHistories: ICompany[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private spacexApi: SpacexApiProvider) {
       this.spacexApi.getCompany({
         order: 'desc',
       }).subscribe(data => {
         this.company = data;
       })
-      console.log(this.company);
+
+      this.spacexApi.getCompanyHistory({
+          order: 'desc',
+        }).subscribe(data => {
+        this.companyHistories = data;
+        console.log(this.companyHistories);
+      })
   }
 
   ionViewDidLoad() {
