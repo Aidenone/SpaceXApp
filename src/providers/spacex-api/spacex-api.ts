@@ -42,6 +42,11 @@ getUpComingLaunches(params: any): Observable<ILaunch[]> {
                            .reduce((p,key) => p.set(key, params[key]), new HttpParams());
   return this.http.get<ILaunch[]>(endpointUrl, {params: httpParams});
 }
+
+getNextLaunch(): Observable<ILaunch> {
+  const endpointUrl = `${this.baseUrl}/launches/next`;
+return this.http.get<ILaunch>(endpointUrl);
+}
  
 
   getCompany(params: any): Observable<ICompany[]> {
