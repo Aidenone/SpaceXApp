@@ -7,15 +7,51 @@
     <ion-title>{{company?.name}}</ion-title>
   </ion-navbar>
 
+
+
+  <ion-segment [(ngModel)]="page">
+    <ion-segment-button value="0" (click)="selectedTab(0)">
+      Company
+    </ion-segment-button>
+    <ion-segment-button value="1" (click)="selectedTab(1)">
+      History
+    </ion-segment-button>
+  </ion-segment>
+
 </ion-header>
 
-<ion-content padding>
-  <p>Founder : {{company?.founder}}</p>
-  <p>COO : {{company?.coo}}</p>
-  <p>Founded in : {{company?.founded}}</p>
-  <p>Valuation : {{company?.valuation}} USD</p>
-  <p>Employees : {{company?.employees}}</p>
-  <p>Summary : {{company?.summary}}</p>
-  <p>Headquarter address : {{company?.headquarters.address}} {{company?.headquarters.city}} {{company?.headquarters.state}}</p>
-  <p>Vehicles number : <a (click)="linkNav('LaunchListPage')">{{company?.vehicles}}</a></p>
+<ion-content >
+
+  <ion-slides #slider (ionSlideWillChange)="moveButton($event)" class="slide">
+
+    <ion-slide>
+        <p>Founder : {{company?.founder}}</p>
+        <p>COO : {{company?.coo}}</p>
+        <p>Founded in : {{company?.founded}}</p>
+        <p>Valuation : {{company?.valuation}} USD</p>
+        <p>Employees : {{company?.employees}}</p>
+        <p>Summary : {{company?.summary}}</p>
+        <p>Headquarter address : {{company?.headquarters.address}} {{company?.headquarters.city}} {{company?.headquarters.state}}</p>
+        <p>Vehicles number : <a (click)="linkNav('RocketPage')">{{company?.vehicles}}</a></p>
+    </ion-slide>
+
+    <ion-slide>
+        <ion-card *ngFor="let history of companyHistories">
+            <ion-card-content>
+              <ion-card-title>
+                {{history.title}}
+              </ion-card-title>
+              <p>
+                 {{history.event_date_utc}}
+              </p>
+              <p>
+                  {{history.details}}
+               </p>
+            </ion-card-content>
+          </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+
 </ion-content>
+
