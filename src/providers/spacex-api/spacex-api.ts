@@ -57,6 +57,13 @@ return this.http.get<ILaunch>(endpointUrl);
     return this.http.get<ICompany[]>(endpointUrl, {params: httpParams});
   }
 
+  getCompanyHistory(params: any): Observable<ICompany[]> {
+    const endpointUrl = `${this.baseUrl}/info/history`;
+    const httpParams = Object.getOwnPropertyNames(params)
+                            .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+    return this.http.get<ICompany[]>(endpointUrl, {params: httpParams});
+  }
+
   getAllCapsules(params: any): Observable<ICapsule[]> {
     const endpointUrl = `${this.baseUrl}/capsules`;
     const httpParams = Object.getOwnPropertyNames(params)

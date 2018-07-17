@@ -53,6 +53,7 @@
 
     <ion-slide>
 
+
   <h3 text-center>All Launches</h3>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   
@@ -88,10 +89,13 @@
           </ion-row>
         </ion-card-content>
       </ion-card>
+
     </ion-slide>
   
     <ion-slide>
+
         <h3 text-center>UpComing Launches</h3>
+
       <ion-card *ngFor="let launch of upComingLaunches">
         <img src="{{launch.links.mission_patch_small}}"/>
         <ion-card-content>
@@ -106,6 +110,7 @@
           </ion-row>
         </ion-card-content>
       </ion-card>
+
     </ion-slide>
   
   </ion-slides>

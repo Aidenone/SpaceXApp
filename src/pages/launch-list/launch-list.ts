@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { ILaunch } from '../../app/Models/ILaunch';
 
+
 /**
  * Generated class for the LaunchListPage page.
  *
@@ -121,16 +122,14 @@ export class LaunchListPage {
        this.searchLaunch = this.allLaunches;
   }
   getItems(ev: any) {
-    // Reset items back to all of the items
     this.initializeItems();
 
-    // set val to the value of the searchbar
-    const val = ev.target.value;
+    const res = ev.target.value;
 
-    //if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
+    
+    if (res && res.trim() != '') {
       this.searchLaunch = this.searchLaunch.filter((item) => {
-        return (item.mission_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.mission_name.toLowerCase().indexOf(res.toLowerCase()) > -1);
       })
     }
   }
