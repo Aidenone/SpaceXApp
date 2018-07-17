@@ -41,6 +41,8 @@ export class LaunchListPage {
   private hours;
   private minutes;
   private seconds;
+  private searchLaunch: any;
+  resultSearch: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private spacexApi: SpacexApiProvider) {
   
@@ -48,13 +50,16 @@ export class LaunchListPage {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
+
     this.spacexApi.getAllLaunches(
       {
         order: 'desc',
       }
     ).subscribe(data => {
       this.allLaunches = data;
+      this.searchLaunch = this.allLaunches;
     })
+
 
     this.spacexApi.getPastLaunches(
       {
@@ -113,10 +118,20 @@ export class LaunchListPage {
     console.log('ionViewDidLoad LaunchListPage');
   }
 
-/*  navigate(flightNumber) {
-    this.navCtrl.push(LaunchPage, {
-      flightNumber: flightNumber
-    })
-  } */
+  initializeItems(){
+       this.searchLaunch = this.allLaunches;
+  }
+  getItems(ev: any) {
+    this.initializeItems();
+
+    const res = ev.target.value;
+
+    
+    if (res && res.trim() != '') {
+      this.searchLaunch = this.searchLaunch.filter((item) => {
+        return (item.mission_name.toLowerCase().indexOf(res.toLowerCase()) > -1);
+      })
+    }
+  }
 
 }
