@@ -3,7 +3,6 @@ import { RocketListPage } from '../rocket-list/rocket-list';
 import { ICompany } from '../../app/Models/ICompany';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-import { CompanyHistoryPage } from '../company-history/company-history';
 
 /**
  * Generated class for the CompanyPage page.
