@@ -50,7 +50,7 @@ export class LaunchListPage {
     this.seconds = 0;
     this.spacexApi.getAllLaunches(
       {
-        order: 'desc',
+        order: 'asc',
       }
     ).subscribe(data => {
       this.allLaunches = data;
@@ -58,7 +58,7 @@ export class LaunchListPage {
 
     this.spacexApi.getPastLaunches(
       {
-        order: 'desc',
+        order: 'asc',
       }
     ).subscribe(data => {
       this.pastLaunches = data;
@@ -75,7 +75,7 @@ export class LaunchListPage {
 
     this.spacexApi.getUpComingLaunches(
       {
-        order: 'desc',
+        order: 'asc',
       }
     ).subscribe(data => {
       this.upComingLaunches = data;

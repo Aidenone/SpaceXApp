@@ -1,0 +1,52 @@
+<!--
+  Generated template for the launchpadListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Launchpads List</ion-title>
+    </ion-navbar>
+  
+</ion-header>
+  
+<!--   
+  <ion-content padding>
+    <ion-list>
+    <ion-item *ngFor="let launchpad of launchpads" (click)="navigate(launchpad.id)">
+      <!-- <img src="{{launch.links.mission_patch_small}}"/>
+      <h2>{{launchpad.full_name}}</h2>
+      
+      <h2>{{launchpad.vehicles_launched}}</h2>
+      <p>{{launchpad.details}}</p>
+      <ion-badge color="secondary" *ngIf="launchpad.active"><h2>{{launchpad.status}}</h2></ion-badge>
+      <ion-badge color="primary" *ngIf="!launchpad.active"><h2>{{launchpad.status}}</h2></ion-badge>
+    </ion-item>
+    </ion-list>
+  </ion-content> -->
+
+  <ion-content padding>
+      <ion-card *ngFor="let launchpad of launchpads" (click)="navigate(launchpad.id)">
+        <!-- <img src="{{launch.links.mission_patch_small}}"/> -->
+        <ion-card-content>
+          <ion-card-title>
+            {{launchpad.full_name}}
+          </ion-card-title>
+          <h2>{{launchpad.vehicles_launched}}</h2>
+          <ion-badge color="secondary" *ngIf="launchpad.active"><h2>{{launchpad.status}}</h2></ion-badge>
+      <ion-badge color="primary" *ngIf="!launchpad.active"><h2>{{launchpad.status}}</h2></ion-badge>
+          <p>
+            {{launchpad.details}}
+            {{launchpad.latitude}}
+          </p>
+          
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
+  

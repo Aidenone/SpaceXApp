@@ -7,9 +7,9 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { CompanyPage } from '../pages/company/company';
 import { CapsulesListPage } from '../pages/capsules-list/capsules-list';
-import { CapsulePage } from '../pages/capsule/capsule';
 import { LaunchListPage } from '../pages/launch-list/launch-list';
 import { RocketListPage } from '../pages/rocket-list/rocket-list';
+import { LaunchpadListPage } from '../pages/launchpads-list/launchpad-list';
 
 
 @Component({
@@ -31,7 +31,8 @@ export class MyApp {
       { title: 'Launches', component: LaunchListPage},
       { title: 'Company', component: CompanyPage},
       { title: 'Capsules', component: CapsulesListPage},
-      { title: 'Rockets', component: RocketListPage}
+      { title: 'Rockets', component: RocketListPage},
+      { title: 'Launchpads', component: LaunchpadListPage}
     ];
 
     this.activePage = this.pages[0];
