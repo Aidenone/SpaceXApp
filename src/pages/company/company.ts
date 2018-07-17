@@ -56,7 +56,6 @@ export class CompanyPage {
   }
 
   linkNav(page, id=null) {
-    console.log("test"+page);
     switch (page) {
       case 'RocketPage':
         this.navCtrl.push(RocketListPage);

@@ -5,6 +5,7 @@ import { ILaunch } from '../../app/models/ILaunch';
 import { ICompany } from '../../app/models/ICompany';
 import { ICapsule } from '../../app/models/ICapsules';
 import { IRocket } from '../../app/models/IRocket';
+import { ILaunchpad } from '../../app/models/ILaunchpad';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -49,6 +50,18 @@ getNextLaunch(): Observable<ILaunch> {
 return this.http.get<ILaunch>(endpointUrl);
 }
  
+getAllLaunchpads(params: any): Observable<ILaunchpad[]> {
+  const endpointUrl = `${this.baseUrl}/launchpads`;
+  const httpParams = Object.getOwnPropertyNames(params)
+                           .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+  return this.http.get<ILaunchpad[]>(endpointUrl, {params: httpParams});
+ }
+
+ getSingleLaunchpads(params: any, idLaunchpads: String): Observable<ILaunchpad> {
+  const endpointUrl = `${this.baseUrl}/launchpads/${idLaunchpads}`;
+  const httpParams = Object.getOwnPropertyNames(params).reduce((p,key) => p.set(key, params[key]), new HttpParams());
+  return this.http.get<ILaunchpad>(endpointUrl, {params: httpParams});
+ }
 
   getCompany(params: any): Observable<ICompany[]> {
     const endpointUrl = `${this.baseUrl}/info`;
@@ -64,13 +77,12 @@ return this.http.get<ILaunch>(endpointUrl);
     return this.http.get<ICompany[]>(endpointUrl, {params: httpParams});
   }
 
-  getAllCapsules(params: any): Observable<ICapsule[]> {
-    const endpointUrl = `${this.baseUrl}/capsules`;
-    const httpParams = Object.getOwnPropertyNames(params)
-                            .reduce((p,key) => p.set(key, params[key]), new HttpParams());
-    return this.http.get<ICapsule[]>(endpointUrl, {params: httpParams});
-  }
-
+ getAllCapsules(params: any): Observable<ICapsule[]> {
+  const endpointUrl = `${this.baseUrl}/capsules`;
+  const httpParams = Object.getOwnPropertyNames(params)
+                           .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+  return this.http.get<ICapsule[]>(endpointUrl, {params: httpParams});
+ }
   getAllRockets(params: any): Observable<IRocket[]>{
     const endpointUrl = `${this.baseUrl}/rockets`;
     const httpParams = Object.getOwnPropertyNames(params).reduce((p,key) => p.set(key, params[key]), new HttpParams());

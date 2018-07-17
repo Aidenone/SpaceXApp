@@ -23,7 +23,8 @@ export class RocketPage {
     this.idRocket = navParams.get("idRocket");
 
     this.spacexApi.getSingleRocket({}, this.idRocket).subscribe(data => {
-      this.rocket = data;        
+      this.rocket = data;
+      console.log(data)        
     })
     
   }
