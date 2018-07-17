@@ -61,12 +61,6 @@ export class CompanyPage {
       case 'RocketPage':
         this.navCtrl.push(RocketListPage);
       break;
-
-      case 'CompanyHistory':
-        this.navCtrl.push(CompanyHistoryPage, {
-          historyId: id
-        });
-      break;
     
       default:
         this.navCtrl.push(CompanyPage);
