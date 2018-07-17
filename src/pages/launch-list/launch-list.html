@@ -26,28 +26,29 @@
         Up Coming
       </ion-segment-button>
     </ion-segment>
-    <ion-card>
-     
-      <ion-card-content *ngIf="nextLaunch">
-        <ion-card-title><!-- Next launch : -->
-          {{nextLaunch.mission_name}}
-          </ion-card-title>
-      
-          <ion-icon name="clock">
-          <h3>{{days}} Day(s) :  
-           {{hours}} Hour(s) : 
-          {{minutes}} Minute(s) : 
-          {{seconds}} Second(s) </h3>
-          </ion-icon>
-        
-      </ion-card-content>
+    
   </ion-header>
   
 
 
 <ion-content padding>
  
-
+  <ion-card>
+     
+    <ion-card-content *ngIf="nextLaunch">
+      <ion-card-title> <p>Next launch :</p>
+        {{nextLaunch.mission_name}}
+        </ion-card-title>
+    
+        <ion-icon name="clock">
+        <h3>{{days}} Day(s) :  
+         {{hours}} Hour(s) : 
+        {{minutes}} Minute(s) : 
+        {{seconds}} Second(s) </h3>
+        </ion-icon>
+      
+    </ion-card-content>
+    </ion-card>
   <ion-slides #slider (ionSlideWillChange)="moveButton($event)" class="slide">
 
     <ion-slide>
@@ -56,15 +57,15 @@
   <ion-searchbar
   [(ngModel)]="myInput"
   [showCancelButton]="shouldShowCancel"
-  (ionInput)="onInput($event)"
-  (ionCancel)="onCancel($event)">
-  <ion-item>
+  type="text" ng-model="input.filterUser" placeholder="Search">
+  
+  <!-- <ion-item>
     <ion-label>Filter</ion-label>
     <ion-select [(ngModel)]="gender">
       <ion-option value="f">Female</ion-option>
       <ion-option value="m">Male</ion-option>
     </ion-select>
-  </ion-item>
+  </ion-item> -->
 </ion-searchbar>
       <ion-card *ngFor="let launch of allLaunches">
         <img src="{{launch.links.mission_patch_small}}"/>
