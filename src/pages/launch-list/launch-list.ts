@@ -40,6 +40,8 @@ export class LaunchListPage {
   private hours;
   private minutes;
   private seconds;
+  private searchLaunch: any;
+  resultSearch: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private spacexApi: SpacexApiProvider) {
   
@@ -47,13 +49,16 @@ export class LaunchListPage {
     this.hours = 0;
     this.minutes = 0;
     this.seconds = 0;
+
     this.spacexApi.getAllLaunches(
       {
         order: 'desc',
       }
     ).subscribe(data => {
       this.allLaunches = data;
+      this.searchLaunch = this.allLaunches;
     })
+
 
     this.spacexApi.getPastLaunches(
       {
@@ -110,6 +115,24 @@ export class LaunchListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchListPage');
+  }
+
+  initializeItems(){
+       this.searchLaunch = this.allLaunches;
+  }
+  getItems(ev: any) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set val to the value of the searchbar
+    const val = ev.target.value;
+
+    //if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.searchLaunch = this.searchLaunch.filter((item) => {
+        return (item.mission_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
 }
