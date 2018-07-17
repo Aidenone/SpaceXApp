@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
+
 /**
- * Generated class for the RocketPage page.
+ * Generated class for the LaunchpadPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,27 +11,28 @@ import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 
 @IonicPage()
 @Component({
-  selector: 'page-rocket',
-  templateUrl: 'rocket.html',
+  selector: 'page-Launchpads',
+  templateUrl: 'launchpad.html',
 })
-export class RocketPage {
-  public idRocket;
-  rocket: any;
+export class LaunchpadPage {
+  public idLaunchpad;
+  launchpad: any;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private spacexApi: SpacexApiProvider) {
 
-    this.idRocket = navParams.get("idRocket");
+    this.idLaunchpad = navParams.get("LaunchpadId");
 
-    this.spacexApi.getSingleRocket({}, this.idRocket).subscribe(data => {
-      this.rocket = data;
-      console.log(data)        
+    this.spacexApi.getSingleLaunchpads({}, this.idLaunchpad).subscribe(data => {
+      this.launchpad = data;    
+      console.log(data)    
     })
     
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RocketPage');
+    console.log('ionViewDidLoad LaunchpadPage');
   }
 
 }

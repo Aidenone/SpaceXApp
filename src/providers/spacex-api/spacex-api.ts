@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { ILaunch } from '../../app/models/ILaunch';
 import { ICapsule } from '../../app/models/ICapsules';
 import { IRocket } from '../../app/models/IRocket';
+import { ILaunchpad } from '../../app/models/ILaunchpad';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -41,6 +42,18 @@ getUpComingLaunches(params: any): Observable<ILaunch[]> {
   return this.http.get<ILaunch[]>(endpointUrl, {params: httpParams});
 }
  
+getAllLaunchpads(params: any): Observable<ILaunchpad[]> {
+  const endpointUrl = `${this.baseUrl}/launchpads`;
+  const httpParams = Object.getOwnPropertyNames(params)
+                           .reduce((p,key) => p.set(key, params[key]), new HttpParams());
+  return this.http.get<ILaunchpad[]>(endpointUrl, {params: httpParams});
+ }
+
+ getSingleLaunchpads(params: any, idLaunchpads: String): Observable<ILaunchpad> {
+  const endpointUrl = `${this.baseUrl}/launchpads/${idLaunchpads}`;
+  const httpParams = Object.getOwnPropertyNames(params).reduce((p,key) => p.set(key, params[key]), new HttpParams());
+  return this.http.get<ILaunchpad>(endpointUrl, {params: httpParams});
+ }
 
  getAllCapsules(params: any): Observable<ICapsule[]> {
   const endpointUrl = `${this.baseUrl}/capsules`;
@@ -48,7 +61,6 @@ getUpComingLaunches(params: any): Observable<ILaunch[]> {
                            .reduce((p,key) => p.set(key, params[key]), new HttpParams());
   return this.http.get<ICapsule[]>(endpointUrl, {params: httpParams});
  }
-
   getAllRockets(params: any): Observable<IRocket[]>{
     const endpointUrl = `${this.baseUrl}/rockets`;
     const httpParams = Object.getOwnPropertyNames(params).reduce((p,key) => p.set(key, params[key]), new HttpParams());
