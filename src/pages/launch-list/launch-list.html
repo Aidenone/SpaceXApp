@@ -53,19 +53,14 @@
 
     <ion-slide>
 
+
   <h3 text-center>All Launches</h3>
   <ion-searchbar
   [(ngModel)]="myInput"
   [showCancelButton]="shouldShowCancel"
   type="text" ng-model="input.filterUser" placeholder="Search">
   
-  <!-- <ion-item>
-    <ion-label>Filter</ion-label>
-    <ion-select [(ngModel)]="gender">
-      <ion-option value="f">Female</ion-option>
-      <ion-option value="m">Male</ion-option>
-    </ion-select>
-  </ion-item> -->
+  
 </ion-searchbar>
       <ion-card *ngFor="let launch of allLaunches">
         <img src="{{launch.links.mission_patch_small}}"/>
@@ -99,10 +94,13 @@
           </ion-row>
         </ion-card-content>
       </ion-card>
+
     </ion-slide>
   
     <ion-slide>
+
         <h3 text-center>UpComing Launches</h3>
+
       <ion-card *ngFor="let launch of upComingLaunches">
         <img src="{{launch.links.mission_patch_small}}"/>
         <ion-card-content>
@@ -117,6 +115,7 @@
           </ion-row>
         </ion-card-content>
       </ion-card>
+
     </ion-slide>
   
   </ion-slides>

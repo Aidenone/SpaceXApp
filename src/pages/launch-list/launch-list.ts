@@ -112,4 +112,10 @@ export class LaunchListPage {
     console.log('ionViewDidLoad LaunchListPage');
   }
 
+/*  navigate(flightNumber) {
+    this.navCtrl.push(LaunchPage, {
+      flightNumber: flightNumber
+    })
+  } */
+
 }
